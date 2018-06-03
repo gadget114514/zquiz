@@ -1,0 +1,27 @@
+<div id="questions" class="carousel slide" data-interval="false">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+
+    <div class="item" ng-repeat="item in items" ng-class="{active : true}">
+      <h4 class="title">{{item.title}}</h4>
+      <br/>
+      <form name="questions">
+	<div class="item" ng-repeat="piece in item.questions">
+	  <!--true-false-->
+	  <quiz-truefalse filter-by="piece._id" ng-if="piece.type == 'True-false'"></quiz-truefalse>
+	  <!--multi-choice-->
+	  <quiz-multichoice filter-by="piece._id" ng-if="piece.type == 'Multiple choice'"></quiz-multichoice>
+
+	  <!--multi-correct-->
+	  <quiz-multicorrect filter-by="piece._id" ng-if="piece.type == 'Multiple correct'""></quiz-multicorrect>
+
+	</div>
+      </form>      
+    </div>
+    <div class="item">
+      abc
+    </div>
+  </div>
+  <a class="carousel-control left" href="#questions" role="button" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#questions" role="button" data-slide="next">&rsaquo;</a>
+</div>
